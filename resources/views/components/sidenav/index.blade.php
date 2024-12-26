@@ -3,14 +3,14 @@
         <div class="mt-5">
             <div class="flex flex-col justify-center items-center">
                 <img src="{{asset('logo-app.png')}}" alt="logo">
-                <span class="hidden md:block">Shipment App</span>
+                <span class="hidden md:block">IKKP Merak</span>
             </div>
-            <ul class="space-y-3 mt-5 flex flex-col items-center md:space-y-1 md:p-3 md:items-start ">
+            <ul class="space-y-3 mt-5 flex flex-col items-center md:space-y-1 md:px-5 md:items-start ">
                 <li
-                    class="{{ Request::is('dashboard*') ? 'md:p-2 text-black bg-white w-fit md:w-full dark:bg-zinc-300 dark:border-black shadow-pils dark:shadow-pilsDark border rounded-xl' : 'group w-fit md:w-full md:p-2 rounded-xl transition duration-200 ease-out hover:ease-in' }}">
+                    class="{{ Request::is('dashboard*') ? 'flex justify-between items-center md:p-2 text-black bg-white w-fit md:w-full dark:bg-zinc-300 dark:border-black shadow-pils dark:shadow-pilsDark border rounded-xl' : 'group w-fit md:w-full md:p-2 rounded-xl transition duration-200 ease-out hover:ease-in flex justify-between items-center' }}">
                     <a href="/dashboard/{id}" class="flex items-center gap-2">
                         <div
-                            class="relative p-2.5 group-hover:shadow-icon dark:group-hover:shadow-iconDark rounded-xl overflow-hidden border-0">
+                            class="relative p-2.5 shadow-iconSm group-hover:shadow-icon dark:group-hover:shadow-iconDark rounded-xl overflow-hidden border-0">
                             <!-- Static Background -->
                             <div
                                 class="{{ Request::is('dashboard*') ? 'opacity-100 absolute inset-0 bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 transition-opacity duration-300 border-0' : 'absolute inset-0 bg-white dark:bg-black  transition-opacity duration-300 opacity-0 group-hover:opacity-100' }}">
@@ -28,11 +28,12 @@
                         <span class="hidden text-sm xl:text-md md:block">Dashboard</span>
                     </a>
                 </li>
+
                 <li
                     class="{{ Request::is('analytics*') ? 'md:p-2 w-fit md:w-full text-black bg-white dark:bg-zinc-300 dark:border-black shadow-pils dark:shadow-pilsDark border rounded-xl' : 'group w-fit md:w-full md:p-2 rounded-xl transition duration-200 ease-out hover:ease-in' }}">
                     <a href="/analytics" class="flex items-center gap-2">
                         <div
-                            class="relative p-2.5 group-hover:shadow-icon dark:group-hover:shadow-iconDark rounded-xl overflow-hidden border-0">
+                            class="relative p-2.5 shadow-iconSm group-hover:shadow-icon dark:group-hover:shadow-iconDark rounded-xl overflow-hidden border-0">
                             <!-- Static Background -->
                             <div
                                 class="{{ Request::is('analytics*') ? 'opacity-100 absolute inset-0 bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 transition-opacity duration-300' : 'absolute inset-0 bg-white dark:bg-black transition-opacity duration-300 opacity-0 group-hover:opacity-100' }}">
@@ -55,7 +56,7 @@
                     class="{{ Request::is('dockingdata*') ? 'md:truncate md:p-2 w-fit md:w-full text-black bg-white dark:bg-zinc-300 dark:border-black shadow-pils dark:shadow-pilsDark border rounded-xl' : 'group w-fit md:w-full md:p-2 rounded-xl transition duration-200 ease-out hover:ease-in md:truncate' }}">
                     <a href="/dockingdata" class="flex items-center gap-2 text-sm xl:text-md">
                         <div
-                            class="relative p-2.5 group-hover:shadow-icon dark:group-hover:shadow-iconDark rounded-xl overflow-hidden border-0">
+                            class="relative p-2.5 shadow-iconSm group-hover:shadow-icon dark:group-hover:shadow-iconDark rounded-xl overflow-hidden border-0">
                             <!-- Static Background -->
                             <div
                                 class="{{ Request::is('dockingdata*') ? 'opacity-100 absolute inset-0 bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 transition-opacity duration-300' : 'absolute inset-0 bg-white dark:bg-black  transition-opacity duration-300 opacity-0 group-hover:opacity-100' }}">
@@ -80,26 +81,27 @@
                 </li>
 
                 <li
-                    class="{{ Request::is('team*') ? 'md:p-2 w-fit md:w-full text-black bg-white dark:bg-zinc-300 dark:border-black shadow-pils dark:shadow-pilsDark border rounded-xl' : 'group w-fit md:w-full md:p-2 rounded-xl transition duration-200 ease-out hover:ease-in' }}">
-                    <a href="/team" class="flex items-center gap-2 text-sm xl:text-md">
+                    class="{{ Request::is('newdata*') ? 'md:p-2 w-fit md:w-full text-black bg-white dark:bg-zinc-300 dark:border-black shadow-pils dark:shadow-pilsDark border rounded-xl' : 'group w-fit md:w-full md:p-2 rounded-xl transition duration-200 ease-out hover:ease-in' }}">
+                    <a href="/newdata" class="flex items-center gap-2 text-sm xl:text-md">
                         <div
-                            class="relative p-2.5 group-hover:shadow-icon dark:group-hover:shadow-iconDark rounded-xl overflow-hidden border-0">
+                            class="relative p-2.5 shadow-iconSm group-hover:shadow-icon dark:group-hover:shadow-iconDark rounded-xl overflow-hidden border-0">
                             <!-- Static Background -->
                             <div
-                                class="{{ Request::is('team*') ? 'opacity-100 absolute inset-0 bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 transition-opacity duration-300' : 'absolute inset-0 bg-white dark:bg-black  transition-opacity duration-300 opacity-0 group-hover:opacity-100' }}">
+                                class="{{ Request::is('newdata*') ? 'opacity-100 absolute inset-0 bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 transition-opacity duration-300' : 'absolute inset-0 bg-white dark:bg-black  transition-opacity duration-300 opacity-0 group-hover:opacity-100' }}">
                             </div>
                             <!-- Content -->
                             <div class="relative z-10 block md:hidden lg:block">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="lucide lucide-users-round">
-                                    <path d="M18 21a8 8 0 0 0-16 0" />
-                                    <circle cx="10" cy="8" r="5" />
-                                    <path d="M22 20c0-3.37-2-6.5-4-8a5 5 0 0 0-.45-8.3" />
+                                    stroke-linejoin="round" class="lucide lucide-badge-plus">
+                                    <path
+                                        d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" />
+                                    <line x1="12" x2="12" y1="8" y2="16" />
+                                    <line x1="8" x2="16" y1="12" y2="12" />
                                 </svg>
                             </div>
                         </div>
-                        <span class="hidden text-sm xl:text-md md:block">Team</span>
+                        <span class="hidden text-sm xl:text-md md:block">New Data</span>
                     </a>
                 </li>
 
@@ -107,7 +109,7 @@
                     class="{{ Request::is('profile*') ? 'md:p-2 w-fit md:w-full text-black bg-white dark:bg-zinc-300 dark:border-black shadow-pils dark:shadow-pilsDark border rounded-xl' : 'group w-fit md:w-full md:p-2 rounded-xl transition duration-200 ease-out hover:ease-in' }}">
                     <a href="/profile" class="flex items-center gap-2 text-sm xl:text-md">
                         <div
-                            class="relative p-2.5 group-hover:shadow-icon dark:group-hover:shadow-iconDark rounded-xl overflow-hidden border-0">
+                            class="relative p-2.5 shadow-iconSm group-hover:shadow-icon dark:group-hover:shadow-iconDark rounded-xl overflow-hidden border-0">
                             <!-- Static Background -->
                             <div
                                 class="{{ Request::is('profile*') ? 'opacity-100 absolute inset-0 bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 transition-opacity duration-300' : 'absolute inset-0 bg-white dark:bg-black  transition-opacity duration-300 opacity-0 group-hover:opacity-100' }}">
@@ -130,7 +132,7 @@
                     class="{{ Request::is('report*') ? 'md:p-2 w-fit md:w-full text-black bg-white dark:bg-zinc-300 dark:border-black shadow-pils dark:shadow-pilsDark border rounded-xl' : 'group w-fit md:w-full md:p-2 rounded-xl transition duration-200 ease-out hover:ease-in' }}">
                     <a href="/report" class="flex items-center gap-2 text-sm xl:text-md">
                         <div
-                            class="relative p-2.5 group-hover:shadow-icon dark:group-hover:shadow-iconDark rounded-xl overflow-hidden border-0">
+                            class="relative p-2.5 shadow-iconSm group-hover:shadow-icon dark:group-hover:shadow-iconDark rounded-xl overflow-hidden border-0">
                             <!-- Static Background -->
                             <div
                                 class="{{ Request::is('report*') ? 'opacity-100 absolute inset-0 bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 transition-opacity duration-300' : 'absolute inset-0 bg-white dark:bg-black  transition-opacity duration-300 opacity-0 group-hover:opacity-100' }}">
@@ -148,6 +150,33 @@
                             </div>
                         </div>
                         <span class="hidden text-sm xl:text-md md:block">Report</span>
+                    </a>
+                </li>
+
+                <li
+                    class="{{ Request::is('archive*') ? 'md:p-2 w-fit md:w-full text-black bg-white dark:bg-zinc-300 dark:border-black shadow-pils dark:shadow-pilsDark border rounded-xl' : 'group w-fit md:w-full md:p-2 rounded-xl transition duration-200 ease-out hover:ease-in' }}">
+                    <a href="/archive" class="flex items-center gap-2 text-sm xl:text-md">
+                        <div
+                            class="relative p-2.5 shadow-iconSm group-hover:shadow-icon dark:group-hover:shadow-iconDark rounded-xl overflow-hidden border-0">
+                            <!-- Static Background -->
+                            <div
+                                class="{{ Request::is('archive*') ? 'opacity-100 absolute inset-0 bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 transition-opacity duration-300' : 'absolute inset-0 bg-white dark:bg-black  transition-opacity duration-300 opacity-0 group-hover:opacity-100' }}">
+                            </div>
+                            <!-- Content -->
+                            <div class="relative z-10 block md:hidden lg:block">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-container">
+                                    <path
+                                        d="M22 7.7c0-.6-.4-1.2-.8-1.5l-6.3-3.9a1.72 1.72 0 0 0-1.7 0l-10.3 6c-.5.2-.9.8-.9 1.4v6.6c0 .5.4 1.2.8 1.5l6.3 3.9a1.72 1.72 0 0 0 1.7 0l10.3-6c.5-.3.9-1 .9-1.5Z" />
+                                    <path d="M10 21.9V14L2.1 9.1" />
+                                    <path d="m10 14 11.9-6.9" />
+                                    <path d="M14 19.8v-8.1" />
+                                    <path d="M18 17.5V9.4" />
+                                </svg>
+                            </div>
+                        </div>
+                        <span class="hidden text-sm xl:text-md md:block">Arsip</span>
                     </a>
                 </li>
             </ul>

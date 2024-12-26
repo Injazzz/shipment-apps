@@ -3,11 +3,13 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AnalyticsController;
+use App\Http\Controllers\ArchiveController;
 use App\Http\Controllers\AuthenticatedSessionController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DockingDataController;
 use App\Http\Controllers\FeedbackController;
+use App\Http\Controllers\NewDataController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\TeamController;
@@ -15,7 +17,6 @@ use App\Http\Middleware\Authenticate;
 use App\Http\Middleware\RedirectIfAuthenticated;
 use App\Livewire\Auth\Login;
 use App\Livewire\Auth\Register;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware([Authenticate::class])->group(function () {
@@ -26,6 +27,8 @@ Route::middleware([Authenticate::class])->group(function () {
     Route::get('/team', [TeamController::class, 'index'])->name('team');
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
     Route::get('/report', [ReportController::class, 'index'])->name('report');
+    Route::get('/archive', [ArchiveController::class, 'index'])->name('archive');
+    Route::get('/newdata', [NewDataController::class, 'index'])->name('newdata');
 });
 
 Route::middleware([RedirectIfAuthenticated::class])->group(function () {

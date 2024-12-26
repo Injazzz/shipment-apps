@@ -19,7 +19,7 @@ export default {
             boxShadow: {
                 icon: "0px 5px 20px rgba(0, 0, 0, 0.2)",
                 pils: "0px 7px 35px rgba(0, 0, 0, 0.2)",
-                iconDark: "0px 5px 20px rgba(255, 255, 255, 0.5)",
+                iconDark: "0px 5px 10px rgba(255, 255, 255, 0.5)",
                 pilsDark: "0px 7px 20px rgba(255, 255, 255, 0.4)",
             },
         },

@@ -1,42 +1,44 @@
-<aside class="h-full text-black dark:text-white">
+<aside class="h-full bg-white dark:bg-black text-black dark:text-white">
     <div class="flex flex-col justify-between h-full">
         <div class="mt-5">
             <div class="flex flex-col justify-center items-center">
                 <img src="{{asset('logo-app.png')}}" alt="logo">
-                <span class="">Shipment App</span>
+                <span class="hidden md:block">Shipment App</span>
             </div>
-            <ul class="space-y-1 ml-7 mt-5 mr-5">
+            <ul class="space-y-3 mt-5 flex flex-col items-center md:space-y-1 md:p-3 md:items-start ">
                 <li
-                    class="{{ Request::is('dashboard*') ? 'p-2 text-black bg-white dark:bg-zinc-300 dark:border-black shadow-pils dark:shadow-pilsDark border rounded-xl' : 'group p-2 rounded-xl transition duration-200 ease-out hover:ease-in hover:bg-white hover:shadow-pils hover:border hover:text-black' }}">
-                    <a href="/dashboard/{id}" class="flex items-center gap-3">
-                        <div class="relative p-2.5 shadow-icon rounded-xl overflow-hidden border-0">
+                    class="{{ Request::is('dashboard*') ? 'md:p-2 text-black bg-white w-fit md:w-full dark:bg-zinc-300 dark:border-black shadow-pils dark:shadow-pilsDark border rounded-xl' : 'group w-fit md:w-full md:p-2 rounded-xl transition duration-200 ease-out hover:ease-in' }}">
+                    <a href="/dashboard/{id}" class="flex items-center gap-2">
+                        <div
+                            class="relative p-2.5 group-hover:shadow-icon dark:group-hover:shadow-iconDark rounded-xl overflow-hidden border-0">
                             <!-- Static Background -->
                             <div
-                                class="{{ Request::is('dashboard*') ? 'opacity-100 absolute inset-0 bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 transition-opacity duration-300 border-0' : 'absolute inset-0 bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 transition-opacity duration-300 opacity-0 group-hover:opacity-100' }}">
+                                class="{{ Request::is('dashboard*') ? 'opacity-100 absolute inset-0 bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 transition-opacity duration-300 border-0' : 'absolute inset-0 bg-white dark:bg-black  transition-opacity duration-300 opacity-0 group-hover:opacity-100' }}">
                             </div>
                             <!-- Content -->
-                            <div class="relative z-10">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="lucide lucide-gauge">
+                            <div class="relative z-10 block md:hidden lg:block">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-gauge w-5 h-5">
                                     <path d="m12 14 4-4" />
                                     <path d="M3.34 19a10 10 0 1 1 17.32 0" />
                                 </svg>
                             </div>
                         </div>
-                        Dashboard
+                        <span class="hidden text-sm xl:text-md md:block">Dashboard</span>
                     </a>
                 </li>
                 <li
-                    class="{{ Request::is('analytics*') ? 'p-2 text-black bg-white dark:bg-zinc-300 dark:border-black shadow-pils dark:shadow-pilsDark border rounded-xl' : 'group p-2 rounded-xl transition duration-200 ease-out hover:ease-in hover:bg-white hover:shadow-pils hover:border hover:text-black' }}">
-                    <a href="/analytics" class="flex items-center gap-3">
-                        <div class="relative p-2.5 shadow-icon rounded-xl overflow-hidden border-0">
+                    class="{{ Request::is('analytics*') ? 'md:p-2 w-fit md:w-full text-black bg-white dark:bg-zinc-300 dark:border-black shadow-pils dark:shadow-pilsDark border rounded-xl' : 'group w-fit md:w-full md:p-2 rounded-xl transition duration-200 ease-out hover:ease-in' }}">
+                    <a href="/analytics" class="flex items-center gap-2">
+                        <div
+                            class="relative p-2.5 group-hover:shadow-icon dark:group-hover:shadow-iconDark rounded-xl overflow-hidden border-0">
                             <!-- Static Background -->
                             <div
-                                class="{{ Request::is('analytics*') ? 'opacity-100 absolute inset-0 bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 transition-opacity duration-300' : 'absolute inset-0 bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 transition-opacity duration-300 opacity-0 group-hover:opacity-100' }}">
+                                class="{{ Request::is('analytics*') ? 'opacity-100 absolute inset-0 bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 transition-opacity duration-300' : 'absolute inset-0 bg-white dark:bg-black transition-opacity duration-300 opacity-0 group-hover:opacity-100' }}">
                             </div>
                             <!-- Content -->
-                            <div class="relative z-10">
+                            <div class="relative z-10 block md:hidden lg:block">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round" class="lucide lucide-chart-spline">
@@ -45,20 +47,21 @@
                                 </svg>
                             </div>
                         </div>
-                        Analytics
+                        <span class="hidden text-sm xl:text-md md:block">Analytics</span>
                     </a>
                 </li>
 
                 <li
-                    class="{{ Request::is('dockingdata*') ? 'p-2 text-black bg-white dark:bg-zinc-300 dark:border-black shadow-pils dark:shadow-pilsDark border rounded-xl' : 'group p-2 rounded-xl transition duration-200 ease-out hover:ease-in hover:bg-white hover:shadow-pils hover:border hover:text-black' }}">
-                    <a href="/dockingdata" class="flex items-center gap-3">
-                        <div class="relative p-2.5 shadow-icon rounded-xl overflow-hidden border-0">
+                    class="{{ Request::is('dockingdata*') ? 'md:truncate md:p-2 w-fit md:w-full text-black bg-white dark:bg-zinc-300 dark:border-black shadow-pils dark:shadow-pilsDark border rounded-xl' : 'group w-fit md:w-full md:p-2 rounded-xl transition duration-200 ease-out hover:ease-in md:truncate' }}">
+                    <a href="/dockingdata" class="flex items-center gap-2 text-sm xl:text-md">
+                        <div
+                            class="relative p-2.5 group-hover:shadow-icon dark:group-hover:shadow-iconDark rounded-xl overflow-hidden border-0">
                             <!-- Static Background -->
                             <div
-                                class="{{ Request::is('dockingdata*') ? 'opacity-100 absolute inset-0 bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 transition-opacity duration-300' : 'absolute inset-0 bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 transition-opacity duration-300 opacity-0 group-hover:opacity-100' }}">
+                                class="{{ Request::is('dockingdata*') ? 'opacity-100 absolute inset-0 bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 transition-opacity duration-300' : 'absolute inset-0 bg-white dark:bg-black  transition-opacity duration-300 opacity-0 group-hover:opacity-100' }}">
                             </div>
                             <!-- Content -->
-                            <div class="relative z-10">
+                            <div class="relative z-10  block md:hidden lg:block">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round" class="lucide lucide-ship">
@@ -72,20 +75,21 @@
                                 </svg>
                             </div>
                         </div>
-                        Docking Data
+                        <span class="hidden text-sm xl:text-md md:block">Docking Data</span>
                     </a>
                 </li>
 
                 <li
-                    class="{{ Request::is('team*') ? 'p-2 text-black bg-white dark:bg-zinc-300 dark:border-black shadow-pils dark:shadow-pilsDark border rounded-xl' : 'group p-2 rounded-xl transition duration-200 ease-out hover:ease-in hover:bg-white hover:shadow-pils hover:border hover:text-black' }}">
-                    <a href="/team" class="flex items-center gap-3">
-                        <div class="relative p-2.5 shadow-icon rounded-xl overflow-hidden border-0">
+                    class="{{ Request::is('team*') ? 'md:p-2 w-fit md:w-full text-black bg-white dark:bg-zinc-300 dark:border-black shadow-pils dark:shadow-pilsDark border rounded-xl' : 'group w-fit md:w-full md:p-2 rounded-xl transition duration-200 ease-out hover:ease-in' }}">
+                    <a href="/team" class="flex items-center gap-2 text-sm xl:text-md">
+                        <div
+                            class="relative p-2.5 group-hover:shadow-icon dark:group-hover:shadow-iconDark rounded-xl overflow-hidden border-0">
                             <!-- Static Background -->
                             <div
-                                class="{{ Request::is('team*') ? 'opacity-100 absolute inset-0 bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 transition-opacity duration-300' : 'absolute inset-0 bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 transition-opacity duration-300 opacity-0 group-hover:opacity-100' }}">
+                                class="{{ Request::is('team*') ? 'opacity-100 absolute inset-0 bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 transition-opacity duration-300' : 'absolute inset-0 bg-white dark:bg-black  transition-opacity duration-300 opacity-0 group-hover:opacity-100' }}">
                             </div>
                             <!-- Content -->
-                            <div class="relative z-10">
+                            <div class="relative z-10 block md:hidden lg:block">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round" class="lucide lucide-users-round">
@@ -95,20 +99,21 @@
                                 </svg>
                             </div>
                         </div>
-                        Team
+                        <span class="hidden text-sm xl:text-md md:block">Team</span>
                     </a>
                 </li>
 
                 <li
-                    class="{{ Request::is('profile*') ? 'p-2 text-black bg-white dark:bg-zinc-300 dark:border-black shadow-pils dark:shadow-pilsDark border rounded-xl' : 'group p-2 rounded-xl transition duration-200 ease-out hover:ease-in hover:bg-white hover:shadow-pils hover:border hover:text-black' }}">
-                    <a href="/profile" class="flex items-center gap-3">
-                        <div class="relative p-2.5 shadow-icon rounded-xl overflow-hidden border-0">
+                    class="{{ Request::is('profile*') ? 'md:p-2 w-fit md:w-full text-black bg-white dark:bg-zinc-300 dark:border-black shadow-pils dark:shadow-pilsDark border rounded-xl' : 'group w-fit md:w-full md:p-2 rounded-xl transition duration-200 ease-out hover:ease-in' }}">
+                    <a href="/profile" class="flex items-center gap-2 text-sm xl:text-md">
+                        <div
+                            class="relative p-2.5 group-hover:shadow-icon dark:group-hover:shadow-iconDark rounded-xl overflow-hidden border-0">
                             <!-- Static Background -->
                             <div
-                                class="{{ Request::is('profile*') ? 'opacity-100 absolute inset-0 bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 transition-opacity duration-300' : 'absolute inset-0 bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 transition-opacity duration-300 opacity-0 group-hover:opacity-100' }}">
+                                class="{{ Request::is('profile*') ? 'opacity-100 absolute inset-0 bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 transition-opacity duration-300' : 'absolute inset-0 bg-white dark:bg-black  transition-opacity duration-300 opacity-0 group-hover:opacity-100' }}">
                             </div>
                             <!-- Content -->
-                            <div class="relative z-10">
+                            <div class="relative z-10 block md:hidden lg:block">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round" class="lucide lucide-user-round">
@@ -117,20 +122,21 @@
                                 </svg>
                             </div>
                         </div>
-                        Profile
+                        <span class="hidden text-sm xl:text-md md:block">Profile</span>
                     </a>
                 </li>
 
                 <li
-                    class="{{ Request::is('report*') ? 'p-2 text-black bg-white dark:bg-zinc-300 dark:border-black shadow-pils dark:shadow-pilsDark border rounded-xl' : 'group p-2 rounded-xl transition duration-200 ease-out hover:ease-in hover:bg-white hover:shadow-pils hover:border hover:text-black' }}">
-                    <a href="/report" class="flex items-center gap-3">
-                        <div class="relative p-2.5 shadow-icon rounded-xl overflow-hidden border-0">
+                    class="{{ Request::is('report*') ? 'md:p-2 w-fit md:w-full text-black bg-white dark:bg-zinc-300 dark:border-black shadow-pils dark:shadow-pilsDark border rounded-xl' : 'group w-fit md:w-full md:p-2 rounded-xl transition duration-200 ease-out hover:ease-in' }}">
+                    <a href="/report" class="flex items-center gap-2 text-sm xl:text-md">
+                        <div
+                            class="relative p-2.5 group-hover:shadow-icon dark:group-hover:shadow-iconDark rounded-xl overflow-hidden border-0">
                             <!-- Static Background -->
                             <div
-                                class="{{ Request::is('report*') ? 'opacity-100 absolute inset-0 bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 transition-opacity duration-300' : 'absolute inset-0 bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 transition-opacity duration-300 opacity-0 group-hover:opacity-100' }}">
+                                class="{{ Request::is('report*') ? 'opacity-100 absolute inset-0 bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 transition-opacity duration-300' : 'absolute inset-0 bg-white dark:bg-black  transition-opacity duration-300 opacity-0 group-hover:opacity-100' }}">
                             </div>
                             <!-- Content -->
-                            <div class="relative z-10">
+                            <div class="relative z-10 block md:hidden lg:block">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round" class="lucide lucide-library-big">
@@ -141,7 +147,7 @@
                                 </svg>
                             </div>
                         </div>
-                        Report
+                        <span class="hidden text-sm xl:text-md md:block">Report</span>
                     </a>
                 </li>
             </ul>
@@ -168,19 +174,51 @@
             </div> --}}
 
             <div class="w-full h-14 mt-5 bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 rounded-xl">
-                <form method="POST" action="{{ route('logout') }}">
-                    @csrf
-                    <button type="submit" class="flex gap-3 items-center btn btn-ghost w-full h-14">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                <!-- Open the modal using ID.showModal() method -->
+                <button class="flex gap-2 items-center btn btn-ghost w-full h-14" onclick="modal_logout.showModal()">
+                    <div class="block md:hidden lg:block">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                            class="lucide lucide-door-closed">
+                            class="lucide lucide-door-closed ">
                             <path d="M18 20V6a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v14" />
                             <path d="M2 20h20" />
                             <path d="M14 12v.01" />
                         </svg>
-                        <p class="text-xl">Logout</p>
-                    </button>
-                </form>
+                    </div>
+                    <span class="hidden text-sm xl:text-md md:block">Logout</span>
+                </button>
+
+                <dialog id="modal_logout" class="modal">
+                    <div class="modal-box">
+                        <h3 class="text-lg font-bold">Are you sure to Logout??</h3>
+                        <p class="py-4">Or press
+                            <kbd class="kbd kbd-sm">ESC</kbd>
+                            key to cancel this procces.
+                        </p>
+                        <div class="modal-action flex justify-end items-center">
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <button type="submit" class="flex gap-2 items-center btn btn-ghost w-full h-14">
+                                    <div class="block">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-door-closed ">
+                                            <path d="M18 20V6a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v14" />
+                                            <path d="M2 20h20" />
+                                            <path d="M14 12v.01" />
+                                        </svg>
+                                    </div>
+                                    <span class="block text-sm xl:text-md">Logout</span>
+                                </button>
+                            </form>
+
+                            <form method="dialog">
+                                <button class="btn btn-error h-14">Cancel</button>
+                            </form>
+                        </div>
+                    </div>
+                </dialog>
             </div>
         </div>
     </div>

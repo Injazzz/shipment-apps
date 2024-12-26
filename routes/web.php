@@ -31,8 +31,8 @@ Route::middleware([Authenticate::class])->group(function () {
 Route::middleware([RedirectIfAuthenticated::class])->group(function () {
     Route::get('/login', Login::class)->name('login');
     Route::get('/register', Register::class)->name('register');
-    Route::get('/', HomeController::class);
-    Route::get('/about', [AboutController::class, 'index']);
-    Route::get('/contact', [ContactController::class, 'index']);
-    Route::get('/feedback', [FeedbackController::class, 'index']);
+    Route::get('/', HomeController::class)->name('home');
+    Route::get('/about', [AboutController::class, 'index'])->name('about');
+    Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+    Route::get('/feedback', [FeedbackController::class, 'index'])->name('feedback');
 });

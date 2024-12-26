@@ -908,16 +908,17 @@
 </head>
 
 <body class="bg-white dark:bg-black">
-    <div class="w-full grid grid-cols-12 grid-flow-row">
-        <div class="hidden md:block col-span-2 h-screen w-full">
+    <div class="w-full grid grid-cols-[auto_1fr] md:grid-cols-12 grid-flow-row">
+        <!-- Sidebar -->
+        <div class="block h-screen w-14 md:w-full md:col-span-2 min-w-14">
             <x-sidenav />
         </div>
-        <div class="col-span-10">
-            <main class="ml-3">
-                {{$slot}}
-                @livewireScripts
-            </main>
-        </div>
+
+        <!-- Main Content -->
+        <main class="w-full h-screen bg-white dark:bg-black md:col-span-10 hover:overflow-y-scroll">
+            {{$slot}}
+            @livewireScripts
+        </main>
     </div>
 
 

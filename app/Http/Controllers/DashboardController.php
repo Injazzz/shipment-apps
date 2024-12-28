@@ -12,12 +12,12 @@ class DashboardController extends Controller
         // Ambil data pengguna yang sedang login
         $user = Auth::user();
 
-            // Pastikan id yang ada di URL adalah milik pengguna yang sedang login
+        // Pastikan id yang ada di URL adalah milik pengguna yang sedang login
         if ($user->id != $id) {
             return redirect()->route('dashboard', ['id' => $user->id]); // Redirect ke dashboard pengguna yang sesuai
         }
 
         // Kirim data pengguna ke view
-        return view('dashboard.index', ['user' => $user]);
+        return view('pages.dashboard.index', ['user' => $user]);
     }
 }

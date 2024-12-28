@@ -1,4 +1,4 @@
-<aside class="h-full bg-white dark:bg-black text-black dark:text-white">
+<aside class="h-full text-black">
     <div class="flex flex-col justify-between h-full">
         <div class="mt-5">
             <div class="flex flex-col justify-center items-center">
@@ -7,13 +7,13 @@
             </div>
             <ul class="space-y-3 mt-5 flex flex-col items-center md:space-y-1 md:px-5 md:items-start ">
                 <li
-                    class="{{ Request::is('dashboard*') ? 'flex justify-between items-center md:p-2 text-black bg-white w-fit md:w-full dark:bg-zinc-300 dark:border-black shadow-pils dark:shadow-pilsDark border rounded-xl' : 'group w-fit md:w-full md:p-2 rounded-xl transition duration-200 ease-out hover:ease-in flex justify-between items-center' }}">
+                    class="{{ Request::is('dashboard*') ? 'flex justify-between items-center md:p-2 w-fit md:w-full bg-white/50 backdrop-blur-xl shadow-pils dark:shadow-pilsDark rounded-xl' : 'group w-fit md:w-full md:p-2 rounded-xl transition duration-200 ease-out hover:ease-in flex justify-between items-center' }}">
                     <a href="/dashboard/{id}" class="flex items-center gap-2">
                         <div
-                            class="relative p-2.5 shadow-iconSm group-hover:shadow-icon dark:group-hover:shadow-iconDark rounded-xl overflow-hidden border-0">
+                            class="relative p-2.5 bg-white/50 backdrop-blur-xl shadow-iconSm group-hover:shadow-icon dark:group-hover:shadow-iconDark rounded-xl overflow-hidden border-0">
                             <!-- Static Background -->
                             <div
-                                class="{{ Request::is('dashboard*') ? 'opacity-100 absolute inset-0 bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 transition-opacity duration-300 border-0' : 'absolute inset-0 bg-white dark:bg-black  transition-opacity duration-300 opacity-0 group-hover:opacity-100' }}">
+                                class="{{ Request::is('dashboard*') ? 'opacity-100 absolute inset-0 bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 transition-opacity duration-300 border-0' : 'absolute inset-0 bg-white/75 backdrop-blur-xl  transition-opacity duration-300 opacity-0 group-hover:opacity-100' }}">
                             </div>
                             <!-- Content -->
                             <div class="relative z-10 block md:hidden lg:block">
@@ -25,18 +25,19 @@
                                 </svg>
                             </div>
                         </div>
-                        <span class="hidden text-sm xl:text-md md:block">Dashboard</span>
+                        <span
+                            class="hidden text-sm xl:text-md md:block {{ Request::is('dashboard*') ? 'text-black' : 'text-black dark:text-white' }}">Dashboard</span>
                     </a>
                 </li>
 
                 <li
-                    class="{{ Request::is('analytics*') ? 'md:p-2 w-fit md:w-full text-black bg-white dark:bg-zinc-300 dark:border-black shadow-pils dark:shadow-pilsDark border rounded-xl' : 'group w-fit md:w-full md:p-2 rounded-xl transition duration-200 ease-out hover:ease-in' }}">
+                    class="{{ Request::is('analytics*') ? 'md:p-2 w-fit md:w-full bg-white/50 backdrop-blur-xl shadow-pils dark:shadow-pilsDark border rounded-xl' : 'group w-fit md:w-full md:p-2 rounded-xl transition duration-200 ease-out hover:ease-in' }}">
                     <a href="/analytics" class="flex items-center gap-2">
                         <div
-                            class="relative p-2.5 shadow-iconSm group-hover:shadow-icon dark:group-hover:shadow-iconDark rounded-xl overflow-hidden border-0">
+                            class="relative p-2.5 bg-white/50 backdrop-blur-xl shadow-iconSm group-hover:shadow-icon dark:group-hover:shadow-iconDark rounded-xl overflow-hidden border-0">
                             <!-- Static Background -->
                             <div
-                                class="{{ Request::is('analytics*') ? 'opacity-100 absolute inset-0 bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 transition-opacity duration-300' : 'absolute inset-0 bg-white dark:bg-black transition-opacity duration-300 opacity-0 group-hover:opacity-100' }}">
+                                class="{{ Request::is('analytics*') ? 'opacity-100 absolute inset-0 bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 transition-opacity duration-300' : 'absolute inset-0 bg-white/75 backdrop-blur-xl transition-opacity duration-300 opacity-0 group-hover:opacity-100' }}">
                             </div>
                             <!-- Content -->
                             <div class="relative z-10 block md:hidden lg:block">
@@ -48,18 +49,19 @@
                                 </svg>
                             </div>
                         </div>
-                        <span class="hidden text-sm xl:text-md md:block">Analytics</span>
+                        <span
+                            class="hidden text-sm xl:text-md md:block {{ Request::is('analytics*') ? 'text-black' : 'text-black dark:text-white' }}">Analytics</span>
                     </a>
                 </li>
 
                 <li
-                    class="{{ Request::is('dockingdata*') ? 'md:truncate md:p-2 w-fit md:w-full text-black bg-white dark:bg-zinc-300 dark:border-black shadow-pils dark:shadow-pilsDark border rounded-xl' : 'group w-fit md:w-full md:p-2 rounded-xl transition duration-200 ease-out hover:ease-in md:truncate' }}">
+                    class="{{ Request::is('dockingdata*') ? 'md:truncate md:p-2 w-fit md:w-full bg-white/50 backdrop-blur-xl shadow-pils dark:shadow-pilsDark border rounded-xl' : 'group w-fit md:w-full md:p-2 rounded-xl transition duration-200 ease-out hover:ease-in md:truncate' }}">
                     <a href="/dockingdata" class="flex items-center gap-2 text-sm xl:text-md">
                         <div
-                            class="relative p-2.5 shadow-iconSm group-hover:shadow-icon dark:group-hover:shadow-iconDark rounded-xl overflow-hidden border-0">
+                            class="relative p-2.5 bg-white/50 backdrop-blur-xl shadow-iconSm group-hover:shadow-icon dark:group-hover:shadow-iconDark rounded-xl overflow-hidden border-0">
                             <!-- Static Background -->
                             <div
-                                class="{{ Request::is('dockingdata*') ? 'opacity-100 absolute inset-0 bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 transition-opacity duration-300' : 'absolute inset-0 bg-white dark:bg-black  transition-opacity duration-300 opacity-0 group-hover:opacity-100' }}">
+                                class="{{ Request::is('dockingdata*') ? 'opacity-100 absolute inset-0 bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 transition-opacity duration-300' : 'absolute inset-0 bg-white/75 backdrop-blur-xl  transition-opacity duration-300 opacity-0 group-hover:opacity-100' }}">
                             </div>
                             <!-- Content -->
                             <div class="relative z-10  block md:hidden lg:block">
@@ -76,18 +78,20 @@
                                 </svg>
                             </div>
                         </div>
-                        <span class="hidden text-sm xl:text-md md:block">Docking Data</span>
+                        <span
+                            class="hidden text-sm xl:text-md md:block {{ Request::is('dockingdata*') ? 'text-black' : 'text-black dark:text-white' }}">Docking
+                            Data</span>
                     </a>
                 </li>
 
                 <li
-                    class="{{ Request::is('newdata*') ? 'md:p-2 w-fit md:w-full text-black bg-white dark:bg-zinc-300 dark:border-black shadow-pils dark:shadow-pilsDark border rounded-xl' : 'group w-fit md:w-full md:p-2 rounded-xl transition duration-200 ease-out hover:ease-in' }}">
+                    class="{{ Request::is('newdata*') ? 'md:truncate md:p-2 w-fit md:w-full bg-white/50 backdrop-blur-xl shadow-pils dark:shadow-pilsDark border rounded-xl' : 'group w-fit md:w-full md:p-2 rounded-xl transition duration-200 ease-out hover:ease-in md:truncate' }}">
                     <a href="/newdata" class="flex items-center gap-2 text-sm xl:text-md">
                         <div
-                            class="relative p-2.5 shadow-iconSm group-hover:shadow-icon dark:group-hover:shadow-iconDark rounded-xl overflow-hidden border-0">
+                            class="relative p-2.5 bg-white/50 backdrop-blur-xl shadow-iconSm group-hover:shadow-icon dark:group-hover:shadow-iconDark rounded-xl overflow-hidden border-0">
                             <!-- Static Background -->
                             <div
-                                class="{{ Request::is('newdata*') ? 'opacity-100 absolute inset-0 bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 transition-opacity duration-300' : 'absolute inset-0 bg-white dark:bg-black  transition-opacity duration-300 opacity-0 group-hover:opacity-100' }}">
+                                class="{{ Request::is('newdata*') ? 'opacity-100 absolute inset-0 bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 transition-opacity duration-300' : 'absolute inset-0 bg-white/75 backdrop-blur-xl  transition-opacity duration-300 opacity-0 group-hover:opacity-100' }}">
                             </div>
                             <!-- Content -->
                             <div class="relative z-10 block md:hidden lg:block">
@@ -101,18 +105,20 @@
                                 </svg>
                             </div>
                         </div>
-                        <span class="hidden text-sm xl:text-md md:block">New Data</span>
+                        <span
+                            class="hidden text-sm xl:text-md md:block {{ Request::is('newdata*') ? 'text-black' : 'text-black dark:text-white' }}">New
+                            Data</span>
                     </a>
                 </li>
 
                 <li
-                    class="{{ Request::is('profile*') ? 'md:p-2 w-fit md:w-full text-black bg-white dark:bg-zinc-300 dark:border-black shadow-pils dark:shadow-pilsDark border rounded-xl' : 'group w-fit md:w-full md:p-2 rounded-xl transition duration-200 ease-out hover:ease-in' }}">
-                    <a href="/profile" class="flex items-center gap-2 text-sm xl:text-md">
+                    class="{{ Request::is('profile*') ? 'md:p-2 w-fit md:w-full bg-white/50 backdrop-blur-xl shadow-pils dark:shadow-pilsDark border rounded-xl' : 'group w-fit md:w-full md:p-2 rounded-xl transition duration-200 ease-out hover:ease-in' }}">
+                    <a href="/profile" class="flex items-center gap-2 text-sm xl:text-md text-black">
                         <div
-                            class="relative p-2.5 shadow-iconSm group-hover:shadow-icon dark:group-hover:shadow-iconDark rounded-xl overflow-hidden border-0">
+                            class="relative p-2.5 bg-white/50 backdrop-blur-xl shadow-iconSm group-hover:shadow-icon dark:group-hover:shadow-iconDark rounded-xl overflow-hidden border-0">
                             <!-- Static Background -->
                             <div
-                                class="{{ Request::is('profile*') ? 'opacity-100 absolute inset-0 bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 transition-opacity duration-300' : 'absolute inset-0 bg-white dark:bg-black  transition-opacity duration-300 opacity-0 group-hover:opacity-100' }}">
+                                class="{{ Request::is('profile*') ? 'opacity-100 absolute inset-0 bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 transition-opacity duration-300' : 'absolute inset-0 bg-white/75 backdrop-blur-xl  transition-opacity duration-300 opacity-0 group-hover:opacity-100' }}">
                             </div>
                             <!-- Content -->
                             <div class="relative z-10 block md:hidden lg:block">
@@ -124,18 +130,19 @@
                                 </svg>
                             </div>
                         </div>
-                        <span class="hidden text-sm xl:text-md md:block">Profile</span>
+                        <span
+                            class="hidden text-sm xl:text-md md:block {{ Request::is('profile*') ? 'text-black' : 'text-black dark:text-white' }}">Profile</span>
                     </a>
                 </li>
 
                 <li
-                    class="{{ Request::is('report*') ? 'md:p-2 w-fit md:w-full text-black bg-white dark:bg-zinc-300 dark:border-black shadow-pils dark:shadow-pilsDark border rounded-xl' : 'group w-fit md:w-full md:p-2 rounded-xl transition duration-200 ease-out hover:ease-in' }}">
+                    class="{{ Request::is('report*') ? 'md:p-2 w-fit md:w-full bg-white/50 backdrop-blur-xl shadow-pils dark:shadow-pilsDark border rounded-xl' : 'group w-fit md:w-full md:p-2 rounded-xl transition duration-200 ease-out hover:ease-in' }}">
                     <a href="/report" class="flex items-center gap-2 text-sm xl:text-md">
                         <div
-                            class="relative p-2.5 shadow-iconSm group-hover:shadow-icon dark:group-hover:shadow-iconDark rounded-xl overflow-hidden border-0">
+                            class="relative p-2.5 bg-white/50 backdrop-blur-xl shadow-iconSm group-hover:shadow-icon dark:group-hover:shadow-iconDark rounded-xl overflow-hidden border-0">
                             <!-- Static Background -->
                             <div
-                                class="{{ Request::is('report*') ? 'opacity-100 absolute inset-0 bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 transition-opacity duration-300' : 'absolute inset-0 bg-white dark:bg-black  transition-opacity duration-300 opacity-0 group-hover:opacity-100' }}">
+                                class="{{ Request::is('report*') ? 'opacity-100 absolute inset-0 bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 transition-opacity duration-300' : 'absolute inset-0 bg-white/75 backdrop-blur-xl  transition-opacity duration-300 opacity-0 group-hover:opacity-100' }}">
                             </div>
                             <!-- Content -->
                             <div class="relative z-10 block md:hidden lg:block">
@@ -149,18 +156,19 @@
                                 </svg>
                             </div>
                         </div>
-                        <span class="hidden text-sm xl:text-md md:block">Report</span>
+                        <span
+                            class="hidden text-sm xl:text-md md:block {{ Request::is('report*') ? 'text-black' : 'text-black dark:text-white' }}">Report</span>
                     </a>
                 </li>
 
                 <li
-                    class="{{ Request::is('archive*') ? 'md:p-2 w-fit md:w-full text-black bg-white dark:bg-zinc-300 dark:border-black shadow-pils dark:shadow-pilsDark border rounded-xl' : 'group w-fit md:w-full md:p-2 rounded-xl transition duration-200 ease-out hover:ease-in' }}">
+                    class="{{ Request::is('archive*') ? 'md:p-2 w-fit md:w-full bg-white/50 backdrop-blur-xl shadow-pils dark:shadow-pilsDark border rounded-xl' : 'group w-fit md:w-full md:p-2 rounded-xl transition duration-200 ease-out hover:ease-in' }}">
                     <a href="/archive" class="flex items-center gap-2 text-sm xl:text-md">
                         <div
-                            class="relative p-2.5 shadow-iconSm group-hover:shadow-icon dark:group-hover:shadow-iconDark rounded-xl overflow-hidden border-0">
+                            class="relative p-2.5 bg-white/50 backdrop-blur-xl shadow-iconSm group-hover:shadow-icon dark:group-hover:shadow-iconDark rounded-xl overflow-hidden border-0">
                             <!-- Static Background -->
                             <div
-                                class="{{ Request::is('archive*') ? 'opacity-100 absolute inset-0 bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 transition-opacity duration-300' : 'absolute inset-0 bg-white dark:bg-black  transition-opacity duration-300 opacity-0 group-hover:opacity-100' }}">
+                                class="{{ Request::is('archive*') ? 'opacity-100 absolute inset-0 bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 transition-opacity duration-300' : 'absolute inset-0 bg-white/75 backdrop-blur-xl  transition-opacity duration-300 opacity-0 group-hover:opacity-100' }}">
                             </div>
                             <!-- Content -->
                             <div class="relative z-10 block md:hidden lg:block">
@@ -176,7 +184,8 @@
                                 </svg>
                             </div>
                         </div>
-                        <span class="hidden text-sm xl:text-md md:block">Arsip</span>
+                        <span
+                            class="hidden text-sm xl:text-md md:block {{ Request::is('archive*') ? 'text-black' : 'text-black dark:text-white' }}">Arsip</span>
                     </a>
                 </li>
             </ul>

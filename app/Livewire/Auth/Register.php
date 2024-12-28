@@ -13,7 +13,7 @@ class Register extends Component
     {
 
         return view('livewire.auth.register')
-            ->layout('components.landing-layout');
+            ->extends('layouts.landing');
     }
 
     public function rules () {

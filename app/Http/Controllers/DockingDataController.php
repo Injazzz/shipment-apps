@@ -10,7 +10,7 @@ class DockingDataController extends Controller
 
     public function index()
     {
-        return view('dockingdata.index');
+        return view('pages.dockingdata.index');
     }
 
 }

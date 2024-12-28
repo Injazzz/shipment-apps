@@ -1,4 +1,5 @@
-<nav class="w-full p-3 flex justify-between items-center border rounded-2xl mt-5">
+<nav
+    class="w-full p-3 flex justify-between items-center shadow-iconSm dark:border-0 dark:shadow-pilsDark rounded-2xl mt-5">
     <div class="flex flex-col">
         <div class="breadcrumbs max-w-xs text-sm">
             <ul>
@@ -31,14 +32,14 @@
 
     <div class="flex gap-3">
         <details class="dropdown dropdown-end">
-            <summary class="btn btn-circle mr-3">
+            <summary class="btn btn-circle mr-3 mb-5">
                 <div class="avatar">
                     <div class="w-16 rounded-full">
                         <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
                     </div>
                 </div>
             </summary>
-            <ul class="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow-xl space-y-1 border">
+            <ul class="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow-xl space-y-1">
                 <li><a href="/profile" class="flex items-center gap-2">
                         <div class="block md:hidden lg:block">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
@@ -61,8 +62,9 @@
                                 <path d="M14 12v.01" />
                             </svg>
                         </div>
-                        <span class="hidden text-sm xl:text-md md:block">Logout</span>
-                    </a></li>
+                        <span class="text-sm xl:text-md">Logout</span>
+                    </a>
+                </li>
             </ul>
         </details>
     </div>

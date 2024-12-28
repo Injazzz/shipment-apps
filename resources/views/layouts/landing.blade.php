@@ -1,19 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>@isset($title)
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>
+        @isset($title)
         {{$title}} - ShipmentApps
         @else
         ShipmentApps
-        @endisset</title>
+        @endisset
+    </title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
     <!-- Styles / Scripts -->
     @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
-    @vite(['resources/css/app.css', 'resources/js/dashboard.js'])
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     @else
     <style>
         /* ! tailwindcss v3.4.1 | MIT License | https://tailwindcss.com */
@@ -528,7 +534,7 @@
             border-radius: 9999px
         }
 
-        .rounded-xl {
+        .rounded-lg {
             border-radius: 0.5rem
         }
 
@@ -907,22 +913,15 @@
     @livewireStyles
 </head>
 
-<body class="bg-white dark:bg-black">
-    <div class="w-full grid grid-cols-[auto_1fr] md:grid-cols-12 grid-flow-row">
-        <!-- Sidebar -->
-        <div class="block h-screen w-14 md:w-full md:col-span-2 min-w-14">
-            <x-sidenav />
-        </div>
-
-        <!-- Main Content -->
-        <main class="w-full h-screen bg-white dark:bg-black md:col-span-10 hover:overflow-y-scroll">
-            {{$slot}}
-            @livewireScripts
-        </main>
+<body class="font-sans antialiased dark:bg-zinc-900 h-full overflow-y-scroll">
+    <div class="sticky top-0">
+        <x-navbar />
     </div>
 
-
-
+    <div>
+        @yield('content')
+        @livewireScripts
+    </div>
 </body>
 
 </html>

@@ -5,9 +5,10 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\View;
 use Symfony\Component\HttpFoundation\Response;
 
-class RedirectIfAuthenticated
+class ShareUser
 {
     /**
      * Handle an incoming request.
@@ -16,12 +17,7 @@ class RedirectIfAuthenticated
      */
     public function handle(Request $request, Closure $next): Response
     {
-        // Jika user sudah login, arahkan ke dashboard
-        if (Auth::check()) {
-            return redirect('/dashboard/{id}');
-        }
-
-        // Jika belum login, lanjutkan request
+        View::share('user', Auth::user());
         return $next($request);
     }
 }

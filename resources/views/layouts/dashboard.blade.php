@@ -1,25 +1,19 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>
-        @isset($title)
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>@isset($title)
         {{$title}} - ShipmentApps
         @else
         ShipmentApps
-        @endisset
-    </title>
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+        @endisset</title>
 
     <!-- Styles / Scripts -->
     @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite(['resources/css/app.css', 'resources/js/dashboard.js'])
     @else
     <style>
         /* ! tailwindcss v3.4.1 | MIT License | https://tailwindcss.com */
@@ -534,7 +528,7 @@
             border-radius: 9999px
         }
 
-        .rounded-lg {
+        .rounded-xl {
             border-radius: 0.5rem
         }
 
@@ -913,14 +907,18 @@
     @livewireStyles
 </head>
 
-<body class="font-sans antialiased dark:bg-black h-full overflow-y-scroll">
-    <div class="sticky top-0">
-        <x-navbar />
-    </div>
+<body class="bg-white dark:bg-zinc-800">
+    <div class="w-full grid grid-cols-[auto_1fr] md:grid-cols-12 grid-flow-row">
+        <!-- Sidebar -->
+        <div class="block h-screen w-14 md:w-full md:col-span-2 min-w-14">
+            <x-sidenav />
+        </div>
 
-    <div>
-        {{$slot}}
-        @livewireScripts
+        <!-- Main Content -->
+        <main class="w-full h-screen bg-white dark:bg-zinc-800 md:col-span-10 overflow-y-scroll">
+            @yield('content')
+            @livewireScripts
+        </main>
     </div>
 </body>
 

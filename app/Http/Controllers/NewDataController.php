@@ -10,7 +10,7 @@ class NewDataController extends Controller
 
     public function index()
     {
-        return view('newdata.index');
+        return view('pages.newdata.index');
     }
 
 }

@@ -26,6 +26,8 @@ Route::middleware([Authenticate::class])->group(function () {
     Route::get('/dockingdata', [DockingDataController::class, 'index'])->name('dockingdata');
     Route::get('/team', [TeamController::class, 'index'])->name('team');
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+    Route::get('/profile/edit/{id}', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::put('/profile/update/{id}', [ProfileController::class, 'update'])->name('profile.update');
     Route::get('/report', [ReportController::class, 'index'])->name('report');
     Route::get('/archive', [ArchiveController::class, 'index'])->name('archive');
     Route::get('/newdata', [NewDataController::class, 'index'])->name('newdata');

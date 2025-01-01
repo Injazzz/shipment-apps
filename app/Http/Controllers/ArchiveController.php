@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ArchiveController extends Controller
 {
@@ -10,7 +11,12 @@ class ArchiveController extends Controller
 
     public function index()
     {
-        return view('pages.archive.index');
+        if (!Auth::check()) {
+            abort(403, 'Unauthorized action.');
+        }
+
+        $user = Auth::user();
+        return view('pages.archive.index', ['user' => $user]);
     }
 
 }

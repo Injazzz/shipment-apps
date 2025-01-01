@@ -228,9 +228,9 @@
 
                 <dialog id="modal_logout" class="modal">
                     <div class="modal-box">
-                        <h3 class="text-lg font-bold">Are you sure to Logout??</h3>
+                        <h3 class="text-lg font-bold text-error">Are you sure to Logout??</h3>
                         <p class="py-4">Or press
-                            <kbd class="kbd kbd-sm">ESC</kbd>
+                            <kbd class="kbd kbd-md">ESC</kbd>
                             key to cancel this procces.
                         </p>
                         <div class="modal-action flex justify-end items-center">

@@ -1,7 +1,9 @@
-@extends('layouts.dashboard')
+@extends('layouts.analytics')
 
-@section('content')
-<div class="w-full h-screen overflow-y-scroll scroll-smooth">
-    Analytics
-</div>
+@section('navbar-analytics')
+<x-navbar.navbar-analytics :user="$user" />
+@endsection
+
+@section('analytics-content')
+analytics
 @endsection

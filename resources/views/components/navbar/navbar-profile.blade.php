@@ -29,45 +29,6 @@
             </div>
             <span class="font-bold text-lg text-white">Profile</span>
         </div>
-
-        <div class="flex gap-3">
-            <details class="dropdown dropdown-end">
-                <summary class="btn btn-circle mr-3">
-                    <div class="avatar">
-                        <div class="w-16 rounded-full">
-                            <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
-                        </div>
-                    </div>
-                </summary>
-                <ul class="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow-xl space-y-1">
-                    <li><a href="/profile" class="flex items-center gap-2">
-                            <div class="block md:hidden lg:block">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="lucide lucide-user-round">
-                                    <circle cx="12" cy="8" r="5" />
-                                    <path d="M20 21a8 8 0 0 0-16 0" />
-                                </svg>
-                            </div>
-                            Profile Setting
-                        </a>
-                    </li>
-                    <li><a class="flex gap-2 items-center" onclick="modal_logout.showModal()">
-                            <div class="block md:hidden lg:block">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="lucide lucide-door-closed text-red-500">
-                                    <path d="M18 20V6a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v14" />
-                                    <path d="M2 20h20" />
-                                    <path d="M14 12v.01" />
-                                </svg>
-                            </div>
-                            <span class="text-sm xl:text-md">Logout</span>
-                        </a>
-                    </li>
-                </ul>
-            </details>
-        </div>
     </nav>
     <div class="absolute top-0 w-full">
         <img src="{{asset('curved0.jpg')}}" alt="" class="w-full rounded-2xl h-full min-h-32 ">
@@ -76,15 +37,14 @@
             <div class="flex gap-4 md:gap-5 lg:gap-7 w-full items-center">
                 <div class="avatar">
                     <div class="ring-offset-base-100 w-16 lg:w-24 rounded-full ring ring-blue-500 ring-offset-1">
-                        <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                        <img src="{{ asset('storage/profile_photos/' . $user->profile_photo) }}" />
                     </div>
                 </div>
 
                 <div class="flex flex-col gap-1 lg:gap-2 w-full text-black overflow-hidden">
-                    <p class="text-lg lg:text-2xl xl:text-3xl w-36 md:w-56 lg:w-full truncate">Albert Alexa RBA Dot
-                        Shell</p>
+                    <p class="text-lg lg:text-2xl xl:text-3xl w-36 md:w-56 lg:w-full truncate">{{$user->name}}</p>
                     <hr>
-                    <span class="text-sm lg:text-md xl:text-lg">Manager</span>
+                    <span class="text-sm lg:text-md xl:text-lg capitalize">{{$user->role}}</span>
                 </div>
             </div>
             <a href="{{route('profile.edit', ['id' => $user->id])}}" class="btn btn-sm md:btn-md btn-ghost">

@@ -28,9 +28,16 @@ Route::middleware([Authenticate::class])->group(function () {
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
     Route::get('/profile/edit/{id}', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::put('/profile/update/{id}', [ProfileController::class, 'update'])->name('profile.update');
-    Route::get('/report', [ReportController::class, 'index'])->name('report');
+    Route::get('/report', [ReportController::class, 'index'])->name('report.index');
+    Route::get('/report/{year}', [ReportController::class, 'yearReport'])->name('report.year');
+    Route::get('/report/{year}/{month}', [ReportController::class, 'monthReport'])->name('report.month');
+    Route::get('/report/export/year/{year}', [ReportController::class, 'exportFullYear'])->name('report.export.year');
+    Route::get('/report/export/month/{year}/{month}', [ReportController::class, 'exportPerMonth'])->name('report.export.month');
+
+
     Route::get('/archive', [ArchiveController::class, 'index'])->name('archive');
     Route::get('/newdata', [NewDataController::class, 'index'])->name('newdata');
+    Route::post('/newdata', [NewDataController::class, 'store'])->name('newdata.store');
 });
 
 Route::middleware([RedirectIfAuthenticated::class])->group(function () {

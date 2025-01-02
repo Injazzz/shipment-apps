@@ -13,7 +13,7 @@
     </thead>
     <tbody>
         @foreach($data as $d)
-        <tr class="hover">
+        <tr>
             <td>{{ $loop->iteration }}</td>
             <td>{{ $d->ship_name }}</td>
             <td>{{ $d->ship_line }}</td>
@@ -25,16 +25,43 @@
                 ? number_format($tonnage, 2, ',', '.')
                 : rtrim(rtrim(number_format($tonnage, 3, ',', '.'), '0'), ',');
                 @endphp
-                {{ $formattedTonnage }} ton</td>
+                {{ $formattedTonnage }}</td>
             <td>@php
                 $tonnage = $d->ship_t_muat / 1000;
                 $formattedTonnage = strpos(number_format($tonnage, 3, '.', ''), '.') === false
                 ? number_format($tonnage, 2, ',', '.')
                 : rtrim(rtrim(number_format($tonnage, 3, ',', '.'), '0'), ',');
                 @endphp
-                {{ $formattedTonnage }} ton</td>
+                {{ $formattedTonnage }}</td>
             <td>{{ $d->created_at->format('Y-m-d') }}</td>
         </tr>
         @endforeach
     </tbody>
+
+    <tfoot>
+        @foreach($totals as $total)
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>@php
+                $tonnage = $total->totalTonnageBongkar / 1000;
+                $formattedTonnage = strpos(number_format($tonnage, 3, '.', ''), '.') === false
+                ? number_format($tonnage, 2, ',', '.')
+                : rtrim(rtrim(number_format($tonnage, 3, ',', '.'), '0'), ',');
+                @endphp
+                {{ $formattedTonnage }}</td>
+            <td>@php
+                $tonnage = $total->totalTonnageMuat / 1000;
+                $formattedTonnage = strpos(number_format($tonnage, 3, '.', ''), '.') === false
+                ? number_format($tonnage, 2, ',', '.')
+                : rtrim(rtrim(number_format($tonnage, 3, ',', '.'), '0'), ',');
+                @endphp
+                {{ $formattedTonnage }}</td>
+            <td>{{ $d->created_at->format('Y-m-d') }}</td>
+        </tr>
+        @endforeach
+    </tfoot>
 </table>

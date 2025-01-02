@@ -75,7 +75,7 @@
         <tbody>
             @foreach($monthlyData as $data)
             <tr class="hover:bg-zinc-400 dark:hover:text-black">
-                <td>{{ $loop->iteration }}</td>
+                <td>{{ $loop->iteration + $monthlyData->firstItem() - 1 }}</td>
                 <td>{{ $data->ship_name }}</td>
                 <td>{{ $data->ship_line }}</td>
                 <td>{{ $data->ship_flag }}</td>
@@ -99,5 +99,9 @@
             @endforeach
         </tbody>
     </table>
+    <!-- Tambahkan pagination links -->
+    <div class="pagination-container mt-5 px-5">
+        {{ $monthlyData->links() }}
+    </div>
 </div>
 @endsection

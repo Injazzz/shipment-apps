@@ -46,12 +46,16 @@ class ReportController extends Controller
 
         // Ambil data berdasarkan tahun dan bulan
         $yearlyData = Ship::whereYear('created_at', $year)
-            ->paginate(15); // Pagination dengan 15 data per halaman
+            ->paginate(10); // Pagination dengan 15 data per halaman
+
+        // Ambil data berdasarkan tahun dan bulan tanpa paginasi untuk perhitungan total
+        $totalQuery = Ship::whereYear('created_at', $year)
+            ->get();
 
          // Menghitung total
-        $totalData = $yearlyData->count();
-        $totalTonnageBongkar = $yearlyData->sum('ship_t_bongkar');
-        $totalTonnageMuat = $yearlyData->sum('ship_t_muat');
+        $totalData = $totalQuery->count();
+        $totalTonnageBongkar = $totalQuery->sum('ship_t_bongkar');
+        $totalTonnageMuat = $totalQuery->sum('ship_t_muat');
         $totalCombinedTonnage = $totalTonnageBongkar + $totalTonnageMuat;
 
         return view('pages.report.yearly', compact('year', 'monthlyReports','yearlyData', 'user',
@@ -68,12 +72,16 @@ class ReportController extends Controller
         // Ambil data berdasarkan tahun dan bulan
         $monthlyData = Ship::whereYear('created_at', $year)
             ->whereMonth('created_at', $month)
-            ->get();
+            ->paginate(10); // Pagination dengan 15 data per halaman
 
-        // Menghitung total
-        $totalData = $monthlyData->count();
-        $totalTonnageBongkar = $monthlyData->sum('ship_t_bongkar');
-        $totalTonnageMuat = $monthlyData->sum('ship_t_muat');
+        // Ambil data berdasarkan tahun dan bulan tanpa paginasi untuk perhitungan total
+        $totalQuery = Ship::whereYear('created_at', $year)
+            ->whereMonth('created_at', $month);
+
+        // Menghitung total dari semua data
+        $totalData = $totalQuery->count();
+        $totalTonnageBongkar = $totalQuery->sum('ship_t_bongkar');
+        $totalTonnageMuat = $totalQuery->sum('ship_t_muat');
         $totalCombinedTonnage = $totalTonnageBongkar + $totalTonnageMuat;
 
         // Format data untuk dikirim ke tampilan
@@ -90,11 +98,13 @@ class ReportController extends Controller
             abort(403, 'Unauthorized action.');
         }
 
-        // Validasi year dan month
+         // Validasi year dan month
         $this->validateYearAndMonth($year, $month);
 
-        // Ambil data menggunakan fungsi reusable
-        $data = $this->getShipData($year, $month);
+        // Ambil data dan totalnya
+        $result = $this->getShipDataWithTotals($year, $month);
+        $data = $result['data'];
+        $totals = $result['totals'];
 
         // Handle jika data kosong
         if ($data->isEmpty()) {
@@ -104,8 +114,29 @@ class ReportController extends Controller
         // Tentukan nama file berdasarkan parameter
         $fileName = $this->generateFileName($year, $month);
 
-        // Export data ke Excel
-        return Excel::download(new ShipsExport($data), $fileName);
+        // Export data ke Excel dengan tambahan total
+        return Excel::download(new ShipsExport($data, $totals), $fileName);
+    }
+
+    private function getShipDataWithTotals($year, $month = null)
+    {
+        $query = Ship::whereYear('created_at', $year);
+
+        if ($month) {
+            $query->whereMonth('created_at', $month);
+        }
+
+        $data = $query->get();
+
+        // Hitung total
+        $totals = [
+            'totalData' => $data->count(),
+            'totalTonnageBongkar' => $data->sum('ship_t_bongkar'),
+            'totalTonnageMuat' => $data->sum('ship_t_muat'),
+            'totalCombinedTonnage' => $data->sum('ship_t_bongkar') + $data->sum('ship_t_muat'),
+        ];
+
+        return compact('data', 'totals');
     }
 
     /**

@@ -28,24 +28,35 @@ class ShipsExport implements FromCollection, WithHeadings, WithStyles
         $exportData = $this->data->map(function ($item, $index) {
             return [
                 'no' => $index + 1, // Tambahkan nomor urut
+                'created_at' => $item->created_at->format('Y-m-d') ,
                 'ship_name' => $item->ship_name,
                 'ship_line' => $item->ship_line,
                 'ship_flag' => $item->ship_flag,
                 'ship_t_bongkar' => formatTonnage($item->ship_t_bongkar),
                 'ship_t_muat' => formatTonnage($item->ship_t_muat),
-                'created_at' => $item->created_at->format('Y-m-d') ,
             ];
         });
+
+        // Tambahkan baris kosong sebagai jeda
+        $exportData->push([
+            'no' => '',
+            'created_at' => '',
+            'ship_name' => '',
+            'ship_line' => '',
+            'ship_flag' => '',
+            'ship_t_bongkar' => '',
+            'ship_t_muat' => '',
+        ]);
 
         // Tambahkan baris total
         $exportData->push([
             'no'=>'TOTAL',
+            'created_at' => 'Total Bongkar + Muat: ' . $this->formatTonnage($this->totals['totalCombinedTonnage']),
             'ship_name' => '',
             'ship_line' => '',
             'ship_flag' => '',
             'ship_t_bongkar' => $this->formatTonnage($this->totals['totalTonnageBongkar']),
             'ship_t_muat' => $this->formatTonnage($this->totals['totalTonnageMuat']),
-            'created_at' => 'Total Bongkar + Muat: ' . $this->formatTonnage($this->totals['totalCombinedTonnage']),
         ]);
 
         return $exportData;
@@ -68,12 +79,12 @@ class ShipsExport implements FromCollection, WithHeadings, WithStyles
     {
         return [
             'No',
+            'Created At',
             'Nama Kapal',
             'Line',
             'Flag',
             'Tonnage Bongkar',
             'Tonnage Muat',
-            'Created At',
         ];
     }
 
@@ -81,10 +92,10 @@ class ShipsExport implements FromCollection, WithHeadings, WithStyles
     {
         return [
             // Apply right alignment for bongkar and muat columns
-             'A' => ['alignment' => ['horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_LEFT]],
+            'A' => ['alignment' => ['horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_LEFT]],
+            'B' => ['alignment' => ['horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_LEFT]],
             'E' => ['alignment' => ['horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_RIGHT]],
             'F' => ['alignment' => ['horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_RIGHT]],
-            'G' => ['alignment' => ['horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_RIGHT]],
         ];
     }
 }

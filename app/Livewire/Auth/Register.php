@@ -21,19 +21,26 @@ class Register extends Component
             'name' => ['required'],
             'email' => ['required', 'email', 'unique:users'],
             'password' => ['required', 'min:8'],
-            'agreement' => ['required'],
             'confirm_password' => ['same:password'],
+            'agreement' => ['required', 'accepted'],
         ];
     }
 
     public function registerUser() {
         $this->validate();
 
+         // Debugging untuk cek nilai $this->agreement
+        if ($this->agreement) {
+            logger('Agreement is true');
+        } else {
+            logger('Agreement is false');
+        }
+
         $user = User::create([
             'name' => $this->name,
             'email' => $this->email,
             'password' => bcrypt($this->password),
-            'agreement' => $this->agreement
+            'agreement' => $this->agreement ? 1 : 0, // Simpan sebagai angka
         ]);
 
         Auth::login($user, true);

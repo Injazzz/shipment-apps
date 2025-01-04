@@ -16,6 +16,9 @@ export default {
             fontFamily: {
                 sans: ["Figtree", ...defaultTheme.fontFamily.sans],
             },
+            backgroundImage: {
+                "hero-pattern": "url('/public/curved0.jpg')",
+            },
             boxShadow: {
                 icon: "0px 5px 20px rgba(0, 0, 0, 0.2)",
                 iconSm: "0px 2px 5px rgba(0, 0, 0, 0.2)",

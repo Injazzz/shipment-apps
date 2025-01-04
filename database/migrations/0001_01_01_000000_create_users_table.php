@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('profile_photo')->nullable();
             $table->string('phone')->nullable();
             $table->string('office')->nullable();
-            $table->boolean('agreement')->default(false);
+            $table->boolean('agreement')->default(true);
             $table->rememberToken();
             $table->timestamps();
         });

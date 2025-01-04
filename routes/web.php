@@ -24,6 +24,10 @@ Route::middleware([Authenticate::class])->group(function () {
     Route::get('/dashboard/{id}', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/analytics', [AnalyticsController::class, 'index'])->name('analytics');
     Route::get('/dockingdata', [DockingDataController::class, 'index'])->name('dockingdata');
+    Route::get('/dockingdata/search', [DockingDataController::class, 'search'])->name('dockingdata.search');
+    Route::delete('/dockingdata/{id}', [DockingDataController::class, 'destroy'])->name('dockingdata.destroy');
+    Route::get('/dockingdata/edit/{id}', [DockingDataController::class, 'edit'])->name('dockingdata.edit');
+    Route::put('/dockingdata/update/{id}', [DockingDataController::class, 'update'])->name('dockingdata.update');
     Route::get('/team', [TeamController::class, 'index'])->name('team');
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
     Route::get('/profile/edit/{id}', [ProfileController::class, 'edit'])->name('profile.edit');

@@ -81,7 +81,7 @@
                     @enderror
 
                     <div class="mt-5 flex gap-3">
-                        <input id="agreement" type="checkbox" wire:model.defer="agreement" class="checkbox border-orange-400 [--chkbg:theme(colors.indigo.600)] [--chkfg:orange] checked:border-indigo-800 @error('agreement')
+                        <input type="checkbox" wire:model="agreement" class="checkbox border-orange-400 [--chkbg:theme(colors.indigo.600)] [--chkfg:orange] checked:border-indigo-800 @error('agreement')
                             invalid:border-red-300
                         @enderror" />
                         <p class="text-black text-sm">By creating account, you Agree to our <span

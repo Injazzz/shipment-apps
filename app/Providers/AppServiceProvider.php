@@ -28,12 +28,5 @@ class AppServiceProvider extends ServiceProvider
     {
         View::share('user', Auth::user());
 
-          // Registrasi Event dan Listener
-        Event::listen(
-            ShipUpdated::class,
-            [UpdateReportAfterShipUpdate::class, 'handle']
-        );
-
-         Ship::observe(ShipObserver::class);
     }
 }

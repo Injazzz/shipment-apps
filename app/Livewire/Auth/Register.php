@@ -36,11 +36,14 @@ class Register extends Component
             logger('Agreement is false');
         }
 
+        $path = '49.png';
+
         $user = User::create([
             'name' => $this->name,
             'email' => $this->email,
             'password' => bcrypt($this->password),
             'agreement' => $this->agreement ? 1 : 0, // Simpan sebagai angka
+            'profile_photo' => $path,
         ]);
 
         Auth::login($user, true);

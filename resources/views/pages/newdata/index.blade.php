@@ -24,6 +24,8 @@
                 @endif
 
                 <div class="col-span-1 p-4">
+                    <input type="text" name="user_id" value="{{$user->id}}" class="hidden">
+
                     <label for="ship_name">Nama Kapal</label>
                     <input type="text" name="ship_name" class="p-2 w-full border rounded-xl mb-7 mt-2">
 
@@ -230,7 +232,13 @@
                             </li>
                             <li
                                 class="@if ($loop->iteration % 2 == 1)  md:flex-row-reverse xl:flex-row @else  @endif flex p-2 gap-2 items-center">
-                                <img src="{{asset('package.png')}}" alt="T/muat" class="w-7 h-7">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-package-2 text-secondary">
+                                    <path d="M3 9h18v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9Z" />
+                                    <path d="m3 9 2.45-4.9A2 2 0 0 1 7.24 3h9.52a2 2 0 0 1 1.8 1.1L21 9" />
+                                    <path d="M12 3v6" />
+                                </svg>
                                 @php
                                 $tonnage = $ship->ship_t_muat / 1000;
                                 $formattedTonnage = strpos(number_format($tonnage, 3, '.', ''), '.') === false

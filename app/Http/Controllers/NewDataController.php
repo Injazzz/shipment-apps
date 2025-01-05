@@ -26,12 +26,14 @@ class NewDataController extends Controller
 
     public function store(Request $request)
     {
+        $user = Auth::user();
+
         // Ambil data dari request dan ubah koma menjadi titik
         $requestData = $request->all();
         $requestData['ship_t_bongkar'] = str_replace(',', '.', $requestData['ship_t_bongkar']);
         $requestData['ship_t_muat'] = str_replace(',', '.', $requestData['ship_t_muat']);
 
-        // Validasi input
+        // Validasi input tanpa user_id
         $validated = validator($requestData, [
             'ship_name' => 'required|string|max:255',
             'ship_line' => 'required|string|max:255',
@@ -57,16 +59,19 @@ class NewDataController extends Controller
 
         // Simpan data kapal dalam kilogram
         Ship::create([
+            'user_id' => $user->id, // Set user ID
             'ship_name' => $validated['ship_name'],
             'ship_line' => $validated['ship_line'],
             'ship_flag' => $validated['ship_flag'],
             'ship_cargo' => $validated['ship_cargo'],
             'ship_t_bongkar' => $total_bongkar_kg, // Simpan dalam kilogram
             'ship_t_muat' => $total_muat_kg, // Simpan dalam kilogram
+            'isAproved' => false, // Nilai default
         ]);
 
         // Redirect atau beri pesan sukses
         return redirect()->route('newdata')->with('success', 'Data kapal berhasil disimpan!');
     }
+
 }
 

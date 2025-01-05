@@ -11,6 +11,14 @@
         @csrf
         @method('PUT')
 
+        @if (session('success'))
+        <div class="toast toast-top toast-center z-50">
+            <div class="alert alert-success">
+                <span>{{ session('success') }}</span>
+            </div>
+        </div>
+        @endif
+
         <div class="flex flex-col gap-1 lg:col-span-2">
             <label for="ship_name" class="flex items-center gap-3 text-lg">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -116,10 +124,10 @@
             <label for="ship_t_muat" class="flex items-center gap-3 text-lg">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide lucide-arrow-down-to-line">
-                    <path d="M12 17V3" />
-                    <path d="m6 11 6 6 6-6" />
-                    <path d="M19 21H5" />
+                    class="lucide lucide-package-2">
+                    <path d="M3 9h18v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9Z" />
+                    <path d="m3 9 2.45-4.9A2 2 0 0 1 7.24 3h9.52a2 2 0 0 1 1.8 1.1L21 9" />
+                    <path d="M12 3v6" />
                 </svg>
                 T/Muat</label>
             <div class="h-24 border-l-4 border-black ml-2.5">

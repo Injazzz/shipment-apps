@@ -53,17 +53,27 @@ class ProfileController extends Controller
             abort(403, 'Unauthorized action.');
         }
 
+        if ($request->role === 'manager') {
+            $existingManager = User::where('role', 'manager')->first();
+            if ($existingManager && $existingManager->id !== $user->id) {
+                return redirect()->back()->withErrors(['role' => 'Hanya boleh ada satu user dengan role manager.']);
+            }
+        }
+
         $user->name = $request->name;
         $user->email = $request->email;
         $user->phone = preg_replace('/\D/', '', $request->phone);  // Menghapus semua non-digit karakter
         $user->office = $request->office;
         $user->role = $request->role;
 
+        // Jika pengguna mengunggah foto, proses foto dan simpan; jika tidak, gunakan foto default atau foto lama
         if ($request->hasFile('profile_photo')) {
             $fileName = time() . '.' . $request->profile_photo->extension();
-            $request->profile_photo->storeAs('profile_photos', $fileName, 'public');
-               // Simpan path file ke database
-            $user->profile_photo = $fileName;
+            $request->profile_photo->move(public_path('storage/profile_photos'), $fileName);
+            $user->profile_photo = $fileName; // Simpan hanya nama file
+        } else {
+            // Jika tidak ada file yang diunggah, gunakan foto profil lama atau default
+            $user->profile_photo = $user->profile_photo ?? '49.png';
         }
 
         // Jika password diubah, validasi password saat ini
@@ -77,8 +87,6 @@ class ProfileController extends Controller
         }
 
         $user->save();
-        // Simpan URL ke session untuk ditampilkan di view
-        session(['profile_photo_url' => asset('storage/profile_photos/' . $fileName)]);
 
         return redirect()->route('profile.edit', $id)->with('success', 'Profile updated successfully.')->with('profile_photo_url', asset('storage/profile_photos/' . $user->profile_photo));
     }

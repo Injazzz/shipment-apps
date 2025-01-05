@@ -31,30 +31,6 @@
                 </li>
 
                 <li
-                    class="{{ Request::is('analytics*') ? 'md:p-2 w-fit md:w-full bg-white/50 backdrop-blur-xl shadow-pils dark:shadow-pilsDark border rounded-xl' : 'group w-fit md:w-full md:p-2 rounded-xl transition duration-200 ease-out hover:ease-in' }}">
-                    <a href="/analytics" class="flex items-center gap-2">
-                        <div
-                            class="relative p-2.5 bg-white/50 backdrop-blur-xl shadow-iconSm group-hover:shadow-icon dark:group-hover:shadow-iconDark rounded-xl overflow-hidden border-0">
-                            <!-- Static Background -->
-                            <div
-                                class="{{ Request::is('analytics*') ? 'opacity-100 absolute inset-0 bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 transition-opacity duration-300' : 'absolute inset-0 bg-white/75 backdrop-blur-xl transition-opacity duration-300 opacity-0 group-hover:opacity-100' }}">
-                            </div>
-                            <!-- Content -->
-                            <div class="relative z-10 block md:hidden lg:block">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="lucide lucide-chart-spline">
-                                    <path d="M3 3v16a2 2 0 0 0 2 2h16" />
-                                    <path d="M7 16c.5-2 1.5-7 4-7 2 0 2 3 4 3 2.5 0 4.5-5 5-7" />
-                                </svg>
-                            </div>
-                        </div>
-                        <span
-                            class="hidden text-sm xl:text-md md:block {{ Request::is('analytics*') ? 'text-black' : 'text-black dark:text-white' }}">Analytics</span>
-                    </a>
-                </li>
-
-                <li
                     class="{{ Request::is('dockingdata*') ? 'md:truncate md:p-2 w-fit md:w-full bg-white/50 backdrop-blur-xl shadow-pils dark:shadow-pilsDark border rounded-xl' : 'group w-fit md:w-full md:p-2 rounded-xl transition duration-200 ease-out hover:ease-in md:truncate' }}">
                     <a href="/dockingdata" class="flex items-center gap-2 text-sm xl:text-md">
                         <div
@@ -83,6 +59,38 @@
                             Data</span>
                     </a>
                 </li>
+
+                @if(Auth::user()->role === 'manager')
+                <li
+                    class="{{ Request::is('aproval*') ? 'md:p-2 w-fit md:w-full bg-white/50 backdrop-blur-xl shadow-pils dark:shadow-pilsDark border rounded-xl' : 'group w-fit md:w-full md:p-2 rounded-xl transition duration-200 ease-out hover:ease-in' }}">
+                    <a href="/aproval" class="flex items-center gap-2">
+                        <div
+                            class="relative p-2.5 bg-white/50 backdrop-blur-xl shadow-iconSm group-hover:shadow-icon dark:group-hover:shadow-iconDark rounded-xl overflow-hidden border-0">
+                            <!-- Static Background -->
+                            <div
+                                class="{{ Request::is('aproval*') ? 'opacity-100 absolute inset-0 bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 transition-opacity duration-300' : 'absolute inset-0 bg-white/75 backdrop-blur-xl transition-opacity duration-300 opacity-0 group-hover:opacity-100' }}">
+                            </div>
+                            <!-- Content -->
+                            <div class="relative z-10 block md:hidden lg:block">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-binoculars">
+                                    <path d="M10 10h4" />
+                                    <path d="M19 7V4a1 1 0 0 0-1-1h-2a1 1 0 0 0-1 1v3" />
+                                    <path
+                                        d="M20 21a2 2 0 0 0 2-2v-3.851c0-1.39-2-2.962-2-4.829V8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v11a2 2 0 0 0 2 2z" />
+                                    <path d="M 22 16 L 2 16" />
+                                    <path
+                                        d="M4 21a2 2 0 0 1-2-2v-3.851c0-1.39 2-2.962 2-4.829V8a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v11a2 2 0 0 1-2 2z" />
+                                    <path d="M9 7V4a1 1 0 0 0-1-1H6a1 1 0 0 0-1 1v3" />
+                                </svg>
+                            </div>
+                        </div>
+                        <span
+                            class="hidden text-sm xl:text-md md:block {{ Request::is('aproval*') ? 'text-black' : 'text-black dark:text-white' }}">Aproval</span>
+                    </a>
+                </li>
+                @endif
 
                 <li
                     class="{{ Request::is('newdata*') ? 'md:truncate md:p-2 w-fit md:w-full bg-white/50 backdrop-blur-xl shadow-pils dark:shadow-pilsDark border rounded-xl' : 'group w-fit md:w-full md:p-2 rounded-xl transition duration-200 ease-out hover:ease-in md:truncate' }}">
@@ -161,7 +169,7 @@
                     </a>
                 </li>
 
-                <li
+                {{-- <li
                     class="{{ Request::is('archive*') ? 'md:p-2 w-fit md:w-full bg-white/50 backdrop-blur-xl shadow-pils dark:shadow-pilsDark border rounded-xl' : 'group w-fit md:w-full md:p-2 rounded-xl transition duration-200 ease-out hover:ease-in' }}">
                     <a href="/archive" class="flex items-center gap-2 text-sm xl:text-md">
                         <div
@@ -187,7 +195,7 @@
                         <span
                             class="hidden text-sm xl:text-md md:block {{ Request::is('archive*') ? 'text-black' : 'text-black dark:text-white' }}">Arsip</span>
                     </a>
-                </li>
+                </li> --}}
             </ul>
         </div>
         <div class="p-3">
